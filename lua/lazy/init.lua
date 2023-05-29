@@ -65,7 +65,6 @@ function M.setup(spec, opts)
   Util.track({ plugin = "lazy.nvim" }) -- setup start
   Util.track("module", vim.loop.hrtime() - start)
 
-  dbg()
   -- load config
   Util.track("config")
   Config.setup(opts)
