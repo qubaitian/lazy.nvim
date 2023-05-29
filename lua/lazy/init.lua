@@ -1,5 +1,3 @@
-local dbg = require("debugger")
-
 ---@type LazyCommands
 local M = {}
 M._start = 0
@@ -14,7 +12,6 @@ function M.setup(spec, opts)
     opts = opts or {}
     opts.spec = spec
   end
-  dbg()
   M._start = M._start == 0 and vim.loop.hrtime() or M._start
   if vim.g.lazy_did_setup then
     return vim.notify(
@@ -68,6 +65,7 @@ function M.setup(spec, opts)
   Util.track({ plugin = "lazy.nvim" }) -- setup start
   Util.track("module", vim.loop.hrtime() - start)
 
+  dbg()
   -- load config
   Util.track("config")
   Config.setup(opts)
